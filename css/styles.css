@@ -211,10 +211,19 @@ footer {
     background-color: #333;
 }
 
-/* Соцмережі */
+/* Контейнер для обох рядків */
 .social-links {
     display: flex;
-    gap: 10px;
+    flex-direction: column; /* Розташовуємо групи одну під одною */
+    gap: 15px; /* Відстань між рядками (можете змінити на свій смак) */
+    align-items: center; /* Центруємо рядки по горизонталі */
+}
+
+/* Контейнер для іконок всередині рядка */
+.social-row {
+    display: flex;
+    gap: 40px; /* Відстань між іконками в одному рядку */
+    justify-content: center;
 }
 
 .social-avatar {
@@ -224,7 +233,7 @@ footer {
 }
 
 .social-avatar:hover {
-    transform: scale(1.1); /* Легке збільшення іконки при наведенні */
+    transform: scale(1.1);
 }
 /* =========================================
    АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ
