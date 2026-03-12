@@ -215,6 +215,65 @@ a {
 .next { right: 10px; }
 
 /* =========================================
+   КАРТКИ ПОСЛУГ (Енерго, Бюджет, Індустрія)
+   ========================================= */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFD700;
+    color: #000;
+    border: 2px solid #FFD700;
+    text-decoration: none;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background-color: #e6c200;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.icon-wrapper {
+    background-color: transparent;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-wrapper img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(0);
+}
+
+.service-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================
    СТИЛІ ФУТЕРА ТА КОЛОНОК
    ========================================= */
 footer {
