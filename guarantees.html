@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROZA solar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="#" class="logo-link">
+            <img src="images/logo.png" alt="Logo" class="my-logo">
+            <span class="logo-text">ROZA solar</span>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul class="topmenu">
+            <li><a href="home.html">Головна сторінка</a></li>
+            <li>
+                <a href="#" class="down"> Про нас</a>
+                <ul class="submenu">
+                    <li><a href="services.html">Послуги</a></li>
+                    <li><a href="guarantees.html">Гарантії</a></li>
+                    <li><a href="#">Наші об'єкти</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Оплата та доставка</a></li>
+            <li><a href="#">Новини</a></li>
+            <li><a href="#">Контакти</a></li>
+            <li><a href="#">Особистий кабінет</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="image-section">
+            <img src="images/group.png" alt="Фото 1">
+        </div>
+
+        <div class="guarantees-container">
+            <h2>Гарантії</h2>
+
+            <div class="guarantees-grid">
+                <div class="guarantees-item">
+                    <span class="guarantees-title">Гарантія на сонячні панелі</span>
+                    <p>Надаємо офіційну гарантію від виробника на фотомодулі (від 12 до 15 років), а також гарантуємо збереження потужності на рівні не менше 85% протягом 25 років експлуатації.</p>
+                </div>
+
+                <div class="guarantees-item">
+                    <span class="guarantees-title">Гарантія на інверторне обладнання</span>
+                    <p>Усі інвертори та акумуляторні батареї супроводжуються гарантією від 5 до 10 років залежно від бренду. У разі виникнення гарантійного випадку забезпечуємо швидку заміну або ремонт.</p>
+                </div>
+
+                <div class="guarantees-item">
+                    <span class="guarantees-title">Гарантія на монтажні роботи</span>
+                    <p>Ми несемо повну відповідальність за надійність кріплень та гідроізоляцію даху. Надаємо 5 років гарантії на всі виконані монтажні роботи, прокладання кабелів та електричні з'єднання.</p>
+                </div>
+
+                <div class="guarantees-item">
+                    <span class="guarantees-title">Безкоштовний сервіс та моніторинг</span>
+                    <p>Протягом першого року після запуску станції ми забезпечуємо безкоштовне технічне обслуговування, віддалений моніторинг показників генерації та оперативну підтримку.</p>
+                </div>
+
+                <div class="guarantees-item">
+                    <span class="guarantees-title">Гарантія заявленої генерації</span>
+                    <p>Перед встановленням ми робимо точний розрахунок. Якщо станція генерує менше заявленої в проєкті потужності, ми проводимо безкоштовний технічний аудит та оптимізацію системи.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="column column-form">
+            <form class="footer-form" action="#" method="post" name="comment" id="comment">
+                <h3 class="form-title">Напишіть нам</h3>
+                <input type="text" name="author" id="author" placeholder="Ім'я" required>
+                <input type="email" name="email" id="email" placeholder="Пошта" required>
+                <textarea name="comments" id="comments" rows="4" placeholder="Ваше повідомлення" required></textarea>
+                <button type="submit" name="submit" id="summit">Надіслати</button>
+            </form>
+        </div>
+
+        <div class="column">
+            <p class="contacts-item">Телефонний номер:</p>
+            <p class="contacts-item">
+                <a class="contacts-link" href="tel:+387649863481">+38(066)986 34 81</a>
+                <br><a class="contacts-link" href="tel:+387649863481">+38(095)034 89 75</a>
+                <br><a class="contacts-link" href="tel:+387649863481">+38(050)243 56 01</a>
+            <p class="contacts-item">Електронна пошта:</p>
+            <p class="contacts-item">
+                <a class="contacts-link" href="mailto:roza-solar@gmail.com">roza-solar@gmail.com</a>
+            </p>
+        </div>
+
+        <div class="column">
+            <p class="contacts-item">Графік роботи:</p>
+            <br class="contacts-item">Пн-Пт 09:00 - 18:00
+            <p class="contacts-item">Сб-Нд 09:00 - 15:00</p>
+            <p class="contacts-item">Обідня перерва:</p>
+            <p class="contacts-item">12:00-13:00</p>
+        </div>
+
+        <div class="column">
+            <p class="contacts-item">Адреса:</p>
+            <p>м. Львів, вул. Митрополита Андея, 5</p>
+            <p>м. Львів, вул. Степана Бандери, 22</p>
+        </div>
+
+        <div class="column">
+            <div class="social-links">
+                <div class="social-row">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="images/instagram.png" alt="Instagram" class="social-avatar">
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="images/facebook.png" alt="Facebook" class="social-avatar">
+                    </a>
+                </div>
+
+                <div class="social-row">
+                    <a href="https://www.telegram.com/" target="_blank">
+                        <img src="images/telegram.png" alt="Telegram" class="social-avatar">
+                    </a>
+                    <a href="https://www.viber.com/" target="_blank">
+                        <img src="images/viber.png" alt="Viber" class="social-avatar">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
