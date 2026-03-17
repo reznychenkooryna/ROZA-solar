@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог - ROZA solar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav class="main-nav">
+  <a href="home.html" class="logo-link">
+    <img src="images/logo.png" alt="Logo" class="my-logo">
+    <span class="logo-text">ROZA solar</span>
+  </a>
+
+  <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+  <label for="menu-toggle" class="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="topmenu">
+    <li><a href="home.html">Головна сторінка</a></li>
+    <li><a href="#" class="down"> Про нас</a>
+      <ul class="submenu">
+        <li><a href="services.html">Послуги</a></li>
+        <li><a href="guarantees.html">Гарантії</a></li>
+        <li><a href="#">Наші об'єкти</a></li>
+      </ul>
+    </li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="#">Оплата та доставка</a></li>
+    <li><a href="#">Новини</a></li>
+    <li><a href="#">Контакти</a></li>
+    <li><a href="#">Особистий кабінет</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="catalog-wrapper">
+  <aside class="catalog-filters">
+    <h3>Фільтр товарів</h3>
+    
+    <div class="filter-group" id="category-filter">
+      <span class="filter-title">Категорія</span>
+      <label><input type="checkbox" value="panel"> Сонячні панелі</label>
+      <label><input type="checkbox" value="inverter"> Інвертори</label>
+      <label><input type="checkbox" value="battery"> Акумулятори</label>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-title">Ціна (грн)</span>
+      <div class="price-inputs">
+        <input type="number" id="price-min" placeholder="Від">
+        <span> - </span>
+        <input type="number" id="price-max" placeholder="До">
+      </div>
+    </div>
+
+    <div class="filter-group" id="brand-filter">
+      <span class="filter-title">Виробник</span>
+      <label><input type="checkbox" value="longi"> Longi Solar</label>
+      <label><input type="checkbox" value="axioma"> Axioma</label>
+      <label><input type="checkbox" value="deye"> Deye</label>
+      <label><input type="checkbox" value="huawei"> Huawei</label>
+      <label><input type="checkbox" value="solis"> Solis</label>
+    </div>
+
+    <button class="filter-btn" id="apply-filters">Застосувати</button>
+  </aside>
+
+  <section class="catalog-products">
+    
+    <div class="catalog-header">
+      <span class="results-count">Сортувати за:</span>
+      <select id="sort-select" class="sort-select">
+        <option value="default">За замовчуванням</option>
+        <option value="price-asc">Ціною (від дешевих)</option>
+        <option value="price-desc">Ціною (від дорогих)</option>
+        <option value="name-asc">Назвою (А-Я)</option>
+        <option value="name-desc">Назвою (Я-А)</option>
+        <option value="popularity">Популярністю</option>
+      </select>
+    </div>
+
+    <div class="products-grid" id="products-container">
+      
+      <div class="product-card" data-category="panel" data-brand="longi" data-price="3892.50" data-name="Сонячна панель Longi Solar LR5-66HIH-500M, 500Вт" data-popularity="95">
+        <div class="product-img-wrap"><img src="images/solar-1.png" alt="Сонячна панель"></div>
+        <h4 class="product-name">Сонячна панель Longi Solar LR5-66HIH-500M, 500Вт</h4>
+        <p class="product-price">3 892.50 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+
+      <div class="product-card" data-category="panel" data-brand="axioma" data-price="4891" data-name="Сонячна панель Axioma Energy AXM144-16-182-585N, 585Вт" data-popularity="88">
+        <div class="product-img-wrap"><img src="images/solar-3.png" alt="Сонячна панель"></div>
+        <h4 class="product-name">Сонячна панель Axioma Energy AXM144-16-182-585N, 585Вт</h4>
+        <p class="product-price">4 891 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+
+      <div class="product-card" data-category="inverter" data-brand="deye" data-price="81310" data-name="Гібридний інвертор Deye SUN-12K-SG05LP3-EU" data-popularity="92">
+        <div class="product-img-wrap"><img src="images/inverter-1.png" alt="Інвертор"></div>
+        <h4 class="product-name">Гібридний інвертор Deye SUN-12K-SG05LP3-EU</h4>
+        <p class="product-price">81 310 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+
+      <div class="product-card" data-category="panel" data-brand="jinko" data-price="4800" data-name="Сонячна панель Jinko Solar 415W" data-popularity="80">
+        <div class="product-img-wrap"><img src="images/solar-2.png" alt="Сонячна панель"></div>
+        <h4 class="product-name">Сонячна панель Longi Solar LR5-72HGD-585M Bifacial</h4>
+        <p class="product-price">4 562.88 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+      
+      <div class="product-card" data-category="inverter" data-brand="huawei" data-price="109650.02" data-name="Мережевий інвертор Huawei SUN2000-30KTL-M3" data-popularity="98">
+        <div class="product-img-wrap"><img src="images/inverter-2.png" alt="Інвертор"></div>
+        <h4 class="product-name">Мережевий інвертор Huawei SUN2000-30KTL-M3</h4>
+        <p class="product-price">109 650.02 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+
+      <div class="product-card" data-category="inverter" data-brand="solis" data-price="68800.02" data-name="Мережевий інвертор Solis S5-GC30K" data-popularity="85">
+        <div class="product-img-wrap"><img src="images/inverter-3.png" alt="Акумулятор"></div>
+        <h4 class="product-name">Мережевий інвертор Solis S5-GC30K</h4>
+        <p class="product-price">68 800.02 грн</p>
+        <button class="buy-btn">У кошик</button>
+      </div>
+
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="column column-form">
+    <form class="footer-form" action="#" method="post">
+      <h3 class="form-title">Напишіть нам</h3>
+      <input type="text" name="author" placeholder="Ім'я" required>
+      <input type="email" name="email" placeholder="Пошта" required>
+      <textarea name="comments" rows="4" placeholder="Ваше повідомлення" required></textarea>
+      <button type="submit">Надіслати</button>
+    </form>
+  </div>
+
+  <div class="column">
+    <p class="contacts-item">Телефонний номер:</p>
+    <p class="contacts-item">
+      <a class="contacts-link" href="tel:+380669863481">+38(066)986 34 81</a>
+      <br><a class="contacts-link" href="tel:+380950348975">+38(095)034 89 75</a>
+      <br><a class="contacts-link" href="tel:+380502435601">+38(050)243 56 01</a>
+    </p>
+    <p class="contacts-item">Електронна пошта:</p>
+    <p class="contacts-item">
+      <a class="contacts-link" href="mailto:roza-solar@gmail.com">roza-solar@gmail.com</a>
+    </p>
+  </div>
+
+  <div class="column">
+    <p class="contacts-item">Графік роботи:</p>
+    <br class="contacts-item">Пн-Пт 09:00 - 18:00
+    <p class="contacts-item">Сб-Нд 09:00 - 15:00</p>
+    <p class="contacts-item">Обідня перерва:</p>
+    <p class="contacts-item">12:00-13:00</p>
+  </div>
+
+  <div class="column">
+    <p class="contacts-item">Адреса:</p>
+      <p>м. Львів, вул. Митрополита Андрея, 5</p>
+      <p>м. Львів, вул. Степана Бандери, 22</p>
+  </div>
+
+  <div class="column">
+    <div class="social-links">
+      <div class="social-row">
+        <a href="https://www.instagram.com/" target="_blank">
+          <img src="images/instagram.png" alt="Instagram" class="social-avatar">
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+          <img src="images/facebook.png" alt="Facebook" class="social-avatar">
+        </a>
+      </div>
+      
+      <div class="social-row">
+        <a href="https://www.telegram.com/" target="_blank">
+          <img src="images/telegram.png" alt="Telegram" class="social-avatar">
+        </a>
+        <a href="https://www.viber.com/" target="_blank">
+          <img src="images/viber.png" alt="Viber" class="social-avatar">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
