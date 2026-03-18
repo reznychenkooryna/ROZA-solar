@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box; /* Щоб padding не розширював блоки за межі екрана */
+    box-sizing: border-box;
 }
 body {
     font-family: "Montserrat", sans-serif;
@@ -503,18 +503,54 @@ a {
 /*Goods*/
 .catalog-wrapper {
     display: flex;
-    max-width: 1450px;
+    align-items: flex-start; 
+    gap: 30px;
+    max-width: 1400px;
     margin: 40px auto;
     padding: 0 20px;
-    gap: 30px;
-    align-items: flex-start;
 }
 .catalog-filters {
-    flex: 0 0 280px;
+    flex: 0 0 280px; 
     background: #f9f9f9;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.scroll-filter {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-top: 5px;
+    background: #fff;
+}
+.catalog-products {
+    flex: 1;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    height: 100%; 
+}
+.scroll-filter::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-filter::-webkit-scrollbar-thumb {
+    background: #FFD700;
+    border-radius: 10px;
+}
+.filter-group label:hover {
+    color: #e6c200;
 }
 .catalog-filters h3 {
     margin-top: 0;
@@ -569,25 +605,6 @@ a {
 .filter-btn:hover {
     background-color: #e6c200;
 }
-.catalog-products {
-    flex: 1;
-}
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-.product-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -617,6 +634,7 @@ a {
     font-weight: bold;
     color: #000;
     margin: 0 0 15px 0;
+    text-align: center;
 }
 .buy-btn {
     width: 100%;
