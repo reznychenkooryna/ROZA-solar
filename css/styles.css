@@ -526,7 +526,7 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
-    max-width: 1600px;
+    max-width: 1700px;
     margin: 50px auto;
     padding: 0 20px;
 }
