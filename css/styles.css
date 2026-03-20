@@ -992,6 +992,9 @@ footer {
     .guarantees-item:last-child {
         width: 100%;           
     }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
     .catalog-wrapper {
         flex-direction: column;
     }
