@@ -63,7 +63,7 @@ a {
 .topmenu > li > a {
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 20px;
     white-space: nowrap;
     font-weight: bold;
     color: #000;
@@ -88,6 +88,7 @@ a {
     visibility: hidden;
     opacity: 0;
     z-index: 5;
+    width: 100%;
     min-width: 100%;
     transform: perspective(600px) rotateX(-90deg);
     transform-origin: 0% 0%;
@@ -108,7 +109,7 @@ a {
     display: block;
     color: #000;
     font-size: 13px;
-    padding: 15px 20px;
+    padding: 15px 15px;
     white-space: nowrap;
     height: auto;
 }
