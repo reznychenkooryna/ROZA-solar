@@ -56,7 +56,15 @@
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="images/object1.jfif" alt="Приватна СЕС">
+                    <div class="card-carousel">
+                        <div class="card-carousel-inner">
+                            <img src="images/object1.jfif" class="card-slide active" alt="Фото 1">
+                            <img src="images/object001.jpg" class="card-slide" alt="Фото 2">
+                            <img src="images/object002.jpg" class="card-slide" alt="Фото 3">
+                        </div>
+                        <button class="card-carousel-btn prev" onclick="moveCardSlide(this, -1)">&#10094</button>
+                        <button class="card-carousel-btn next" onclick="moveCardSlide(this, 1)">&#10095</button>
+                    </div>
                     <h3 class="project-title">Мережева СЕС "Затишний двір"</h3>
                     <ul>
                         <li><strong>Тип системи:</strong>Мережева станція під "Зелений тариф"</li>
@@ -65,6 +73,7 @@
                         <li><strong>Результат:</strong> Економія до 80% на електроенергії, повна автономія від мережі, зниження вуглецевого сліду</li>
                     </ul>
                 </div>
+            
 
                 <div class="project-card">
                     <img src="images/object2.jfif" alt="Приватна СЕС">
@@ -120,7 +129,6 @@
                         <li><strong>Результат:</strong> Незалежність від зовнішніх мереж, стабільна робота всіх систем будинку навіть взимку.</li>
                     </ul>
                 </div>
-
             </div>
         </div>       
     </main>

@@ -54,6 +54,30 @@ if (carouselInner && carouselContainer) {
 
     resetAutoPlay();
 }
+
+function moveCardSlide(button, direction) {
+    const carousel = button.closest('.card-carousel');
+    const slides = carousel.querySelectorAll('.card-slide');
+
+    let activeIndex = 0;
+
+    slides.forEach((slide, index) => {
+        if (slide.classList.contains('active')) {
+            activeIndex = index;
+            slide.classList.remove('active');
+        }
+    });
+
+    let newIndex = activeIndex + direction;
+
+    if (newIndex >= slides.length) newIndex = 0;
+    if (newIndex < 0) newIndex = slides.length - 1;
+
+    slides[newIndex].classList.add('active');
+}
+
+
+
 const applyFiltersBtn = document.getElementById('apply-filters');
 
 if (applyFiltersBtn) {

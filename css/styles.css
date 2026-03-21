@@ -560,6 +560,69 @@ a {
     padding: 0 20px 25px 20px;
     margin: 0;
 }
+/* --- CAROUSEL STYLES --- */
+.card-carousel {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+.card-carousel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.card-carousel-inner img.card-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    display: block;
+}
+.card-carousel-inner img.card-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+.card-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    opacity: 0;
+    transition: background-color 0.3s, opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+.card-carousel:hover .card-carousel-btn {
+    opacity: 1;
+}
+.card-carousel-btn.prev {
+    left: 0px;
+}
+.card-carousel:hover .card-carousel-btn.prev {
+    left: 10px;
+}
+.card-carousel-btn.next {
+    right: 0px;
+}
+.card-carousel:hover .card-carousel-btn.next {
+    right: 10px;
+}
+.card-carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 /*Goods*/
 .catalog-wrapper {
     display: flex;
