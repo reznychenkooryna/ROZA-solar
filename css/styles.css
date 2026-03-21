@@ -599,9 +599,8 @@ a {
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 50%;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
     opacity: 0;
-    transition: background-color 0.3s, opacity 0.3s ease-in-out;
     z-index: 10;
 }
 .card-carousel:hover .card-carousel-btn {
