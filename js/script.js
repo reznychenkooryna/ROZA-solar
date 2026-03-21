@@ -54,44 +54,51 @@ if (carouselInner && carouselContainer) {
 
     resetAutoPlay();
 }
-
-// 2. БЛОК ФІЛЬТРІВ
 const applyFiltersBtn = document.getElementById('apply-filters');
 
-// Перевіряємо, чи є кнопка фільтрів на сторінці
 if (applyFiltersBtn) {
     applyFiltersBtn.addEventListener('click', function() {
-        // Перевіряємо чи існують поля вводу цін, щоб уникнути помилок
-        const minPriceInput = document.getElementById('price-min');
-        const maxPriceInput = document.getElementById('price-max');
-        
-        const minPrice = minPriceInput ? parseFloat(minPriceInput.value) || 0 : 0;
-        const maxPrice = maxPriceInput ? parseFloat(maxPriceInput.value) || Infinity : Infinity;
-        
-        const selectedCheckboxes = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"]:checked'))
-                                        .map(cb => cb.value);
+        // Отримуємо всі значення фільтрів
+        const f = {
+            minPrice: parseFloat(document.getElementById('price-min')?.value) || 0,
+            maxPrice: parseFloat(document.getElementById('price-max')?.value) || Infinity,
+            minPower: parseFloat(document.getElementById('power-min')?.value) || 0,
+            maxPower: parseFloat(document.getElementById('power-max')?.value) || Infinity,
+            maxLen: parseFloat(document.getElementById('length-max')?.value) || Infinity,
+            maxWid: parseFloat(document.getElementById('width-max')?.value) || Infinity,
+            maxArea: parseFloat(document.getElementById('area-max')?.value) || Infinity,
+            brands: Array.from(document.querySelectorAll('.brand-cb:checked')).map(cb => cb.value.toLowerCase())
+        };
 
         const products = document.querySelectorAll('.product-card');
 
         products.forEach(product => {
-            const price = parseFloat(product.getAttribute('data-price'));
-            const category = product.getAttribute('data-category');
-            const brand = product.getAttribute('data-brand');
-            
-            let isVisible = price >= minPrice && price <= maxPrice;
+            const d = {
+                price: parseFloat(product.dataset.price) || 0,
+                power: parseFloat(product.dataset.power) || 0,
+                len: parseFloat(product.dataset.length) || 0,
+                wid: parseFloat(product.dataset.width) || 0,
+                area: parseFloat(product.dataset.area) || 0,
+                brand: (product.dataset.brand || "").toLowerCase()
+            };
 
-            if (selectedCheckboxes.length > 0) {
-                // Якщо товар не збігається з жодним вибраним фільтром
-                if (!selectedCheckboxes.includes(category) && !selectedCheckboxes.includes(brand)) {
-                    isVisible = false;
-                }
+            // Логіка перевірки кожного параметру
+            const matchPrice = d.price >= f.minPrice && d.price <= f.maxPrice;
+            const matchPower = d.power >= f.minPower && d.power <= f.maxPower;
+            const matchLen   = d.len <= f.maxLen;
+            const matchWid   = d.wid <= f.maxWid;
+            const matchArea  = d.area <= f.maxArea;
+            const matchBrand = f.brands.length === 0 || f.brands.includes(d.brand);
+
+            // Товар відображається тільки якщо ВСІ умови true
+            if (matchPrice && matchPower && matchLen && matchWid && matchArea && matchBrand) {
+                product.style.display = 'flex';
+            } else {
+                product.style.display = 'none';
             }
-
-            product.style.display = isVisible ? 'flex' : 'none';
         });
     });
 }
-
 // 3. БЛОК СОРТУВАННЯ
 const sortSelect = document.getElementById('sort-select');
 const container = document.getElementById('products-container');

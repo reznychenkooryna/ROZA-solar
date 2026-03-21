@@ -560,16 +560,6 @@ a {
     padding: 0 20px 25px 20px;
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
 /*Goods*/
 .catalog-wrapper {
     display: flex;
@@ -607,10 +597,13 @@ a {
     flex-direction: column;
     justify-content: space-between;
     background: #fff;
+    align-items: center; 
+    text-align: center;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #eee;
-    height: 100%; 
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .scroll-filter::-webkit-scrollbar {
     width: 4px;
@@ -634,6 +627,26 @@ a {
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
+}
+.filter-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-group input[type="number"]:focus {
+    border-color: #FFD700;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+}
+.price-inputs {
+    display: flex;
+    gap: 8px;
 }
 .filter-title {
     font-weight: bold;
@@ -679,6 +692,22 @@ a {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-color: #FFD700;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.product-specs {
+    font-size: 13px;
+    color: #666;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+.product-specs span {
+    font-weight: 500;
+    color: #333;
 }
 .product-img-wrap {
     width: 100%;
@@ -703,8 +732,9 @@ a {
     font-size: 20px;
     font-weight: bold;
     color: #000;
-    margin: 0 0 15px 0;
     text-align: center;
+    font-size: 18px;
+    margin: 10px 0;
 }
 .buy-btn {
     width: 100%;
