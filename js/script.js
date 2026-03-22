@@ -123,6 +123,34 @@ if (applyFiltersBtn) {
         });
     });
 }
+const resetFiltersBtn = document.getElementById('reset-filters');
+
+if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener('click', function() {
+        // 1. Очищаємо всі числові інпути
+        const inputs = document.querySelectorAll('.catalog-filters input[type="number"]');
+        inputs.forEach(input => input.value = '');
+
+        // 2. Знімаємо всі чекбокси брендів
+        const checkboxes = document.querySelectorAll('.brand-cb');
+        checkboxes.forEach(cb => cb.checked = false);
+
+        // 3. Скидаємо селект сортування (опціонально)
+        const sortSelect = document.getElementById('sort-select');
+        if (sortSelect) sortSelect.value = 'default';
+
+        // 4. Відображаємо всі товари
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => {
+            product.style.display = 'flex';
+        });
+
+        // 5. Якщо ви хочете, щоб сортування теж повернулося до початкового стану:
+        if (sortSelect) {
+            sortSelect.dispatchEvent(new Event('change'));
+        }
+    });
+}
 // 3. БЛОК СОРТУВАННЯ
 const sortSelect = document.getElementById('sort-select');
 const container = document.getElementById('products-container');

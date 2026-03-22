@@ -837,9 +837,17 @@ a {
     cursor: pointer;
     background-color: #fff;
 }
-
 .sort-select:focus {
     border-color: #FFD700;
+}
+.reset-btn {
+    background-color: #eee; /* Світло-сірий фон */
+    color: #333;
+    margin-top: 10px; /* Відступ від верхньої кнопки */
+}
+.reset-btn:hover {
+    background-color: #ddd;
+    color: #000;
 }
 /*Footer*/
 footer {
