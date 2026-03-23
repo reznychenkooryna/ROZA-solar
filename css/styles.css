@@ -622,9 +622,65 @@ a {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.delivpay-container h3 {
+
+
+.delivpay-container {
+    background-color: #FFD700;
+    padding: 50px;
+    color: black;
+    border-radius: 40px;
+    font-family: "Montserrat", sans-serif;
+    max-width: 1450px;
+    margin: 50px auto;
+}
+
+.delivpay-container h2 {
     text-align: center;
-    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.delivpay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.delivpay-title {
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.delivpay-item {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.delivpay-item:last-child {
+    grid-column: 1 / -1;
+    width: 60%;
+    justify-self: center;
+}
+
+.delivpay-item p {
+    line-height: 1.6;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);    
+}
+
+.delivpay-item:hover {
+    transform: translateY(-10px);
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.delivpay-item ul {
+    list-style-type: none;
+    
+    padding: 0 20px 25px 20px;
+    margin: 0;
 }
 
 /*Goods*/
