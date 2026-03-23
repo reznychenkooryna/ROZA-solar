@@ -53,59 +53,41 @@
       <h3>Фільтри</h3>
 
       <div class="filter-group">
-        <span class="filter-title">Тип акумулятора</span>
+        <span class="filter-title">Ціна (грн)</span>
+        <div class="price-inputs">
+          <input type="number" id="price-min" placeholder="Від">
+          <input type="number" id="price-max" placeholder="До">
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-title">Бренд</span>
         <div class="scroll-filter">
-          <label><input type="checkbox" value="agm"> AGM</label>
-          <label><input type="checkbox" value="carbon"> CARBON</label>
-          <label><input type="checkbox" value="gel"> GEL</label>
-          <label><input type="checkbox" value="li-ion"> Li-Ion</label>
-          <label><input type="checkbox" value="lifepo4"> LiFePo4</label>
-          <label><input type="checkbox" value="mg"> MG</label>
+          <label><input type="checkbox" class="brand-cb" value="ecosolex"> Ecosolex</label>
+          <label><input type="checkbox" class="brand-cb" value="deye"> Deye</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-title">Ємність (кВт х год)</span>
+        <div class="price-inputs">
+          <input type="number" id="capacity-min" placeholder="Мін">
+          <input type="number" id="capacity-max" placeholder="Макс">
         </div>
       </div>
 
       <div class="filter-group">
         <span class="filter-title">Напруга</span>
         <div class="scroll-filter">
-          <label><input type="checkbox" value="12v"> 12В</label>
-          <label><input type="checkbox" value="24v"> 24В</label>
-          <label><input type="checkbox" value="38.4v"> 38.4В</label>
-          <label><input type="checkbox" value="48v"> 48В</label>
-          <label><input type="checkbox" value="102.4v"> 102.4В</label>
-          <label><input type="checkbox" value="180v"> 180В</label>
-          <label><input type="checkbox" value="192v"> 192В</label>
-          <label><input type="checkbox" value="204.8v"> 204.8В</label>
-          <label><input type="checkbox" value="230.4v"> 230.4В</label>
-          <label><input type="checkbox" value="288v"> 288В</label>
-          <label><input type="checkbox" value="384v"> 384В</label>
-          <label><input type="checkbox" value="614.4v"> 614.4В</label>
+          <label><input type="checkbox" class="voltage" value="12"> 12</label>
+          <label><input type="checkbox" class="voltage" value="24"> 24</label>
+          <label><input type="checkbox" class="voltage" value="48"> 48</label>
+          <label><input type="checkbox" class="voltage" value="high-voltage"> Висока напруга</label>
         </div>
-      </div>
-
-      <div class="filter-group">
-        <span class="filter-title">Ємність (А/год)</span>
-        <div class="scroll-filter">
-          <label><input type="checkbox" value="7ah"> 7 А/год</label>
-          <label><input type="checkbox" value="9ah"> 9 А/год</label>
-          <label><input type="checkbox" value="12ah"> 12 А/год</label>
-          <label><input type="checkbox" value="20ah"> 20 А/год</label>
-          <label><input type="checkbox" value="22ah"> 22 А/год</label>
-          <label><input type="checkbox" value="26ah"> 26 А/год</label>
-          <label><input type="checkbox" value="30ah"> 30 А/год</label>
-          <label><input type="checkbox" value="33ah"> 33 А/год</label>
-          <label><input type="checkbox" value="37ah"> 37 А/год</label>
-          <label><input type="checkbox" value="38ah"> 38 А/год</label>
-        </div>
-      </div>
-
-      <div class="filter-group">
-        <span class="filter-title">Потужність панелі (Вт)</span>
-        <label><input type="checkbox" value="500"> 500 Вт</label>
-        <label><input type="checkbox" value="585"> 585 Вт</label>
-        <label><input type="checkbox" value="600"> 600 Вт</label>
       </div>
 
       <button class="filter-btn" id="apply-filters">Застосувати</button>
+      <button class="filter-btn reset-btn" id="reset-filters">Очистити фільтри</button>
     </aside>
 
     <section class="catalog-products">
@@ -121,46 +103,64 @@
       </div>
 
       <div class="products-grid" id="products-container">
-        
-        <div class="product-card" data-category="panel" data-brand="longi" data-price="3892.50" data-name="Сонячна панель Longi Solar LR5-66HIH-500M, 500Вт" data-popularity="95">
-          <div class="product-img-wrap"><img src="images/solar-1.png" alt="Сонячна панель"></div>
-          <h4 class="product-name">Сонячна панель Longi Solar LR5-66HIH-500M, 500Вт</h4>
-          <p class="product-price">3 892.50 грн</p>
-          <button class="buy-btn">У кошик</button>
-        </div>
 
-        <div class="product-card" data-category="panel" data-brand="axioma" data-price="4891" data-name="Сонячна панель Axioma Energy AXM144-16-182-585N, 585Вт" data-popularity="88">
-          <div class="product-img-wrap"><img src="images/solar-3.png" alt="Сонячна панель"></div>
-          <h4 class="product-name">Сонячна панель Axioma Energy AXM144-16-182-585N, 585Вт</h4>
-          <p class="product-price">4 891 грн</p>
-          <button class="buy-btn">У кошик</button>
+        <!--Solar 1-->
+        <div class="product-card" 
+          data-category="panel" 
+          data-brand="ecosolex" 
+          data-price="37627.5" 
+          data-capacity="5.12"
+          data-voltage="48"
+          data-popularity="89">
+        <div class="product-img-wrap">
+          <img src="images/accumulator-1.png" alt="Accumulator">
         </div>
-
-        <div class="product-card" data-category="inverter" data-brand="deye" data-price="81310" data-name="Гібридний інвертор Deye SUN-12K-SG05LP3-EU" data-popularity="92">
-          <div class="product-img-wrap"><img src="images/inverter-1.png" alt="Інвертор"></div>
-          <h4 class="product-name">Гібридний інвертор Deye SUN-12K-SG05LP3-EU</h4>
-          <p class="product-price">81 310 грн</p>
-          <button class="buy-btn">У кошик</button>
+        <h4 class="product-name">Акумуляторна батарея Ecosolex ESR-L5OOOA LiFePO4 LV 51.2v 100AH 5.12kWh</h4>
+        <div class="product-specs">
+          <span>5.12 кВт х год</span>
+          <span>48 В</span>
         </div>
-
-        <div class="product-card" data-category="panel" data-brand="jinko" data-price="4562.88" data-name="Сонячна панель Longi Solar LR5-72HGD-585M Bifacial" data-popularity="80">
-          <div class="product-img-wrap"><img src="images/solar-2.png" alt="Сонячна панель"></div>
-          <h4 class="product-name">Сонячна панель Longi Solar LR5-72HGD-585M Bifacial</h4>
-          <p class="product-price">4 562.88 грн</p>
+          <p class="product-price">3 7627.50 грн</p>
           <button class="buy-btn">У кошик</button>
         </div>
         
-        <div class="product-card" data-category="inverter" data-brand="huawei" data-price="109650.02" data-name="Мережевий інвертор Huawei SUN2000-30KTL-M3" data-popularity="98">
-          <div class="product-img-wrap"><img src="images/inverter-2.png" alt="Інвертор"></div>
-          <h4 class="product-name">Мережевий інвертор Huawei SUN2000-30KTL-M3</h4>
-          <p class="product-price">109 650.02 грн</p>
+        <!--Solar 2-->
+        <div class="product-card" 
+          data-category="panel" 
+          data-brand="deye" 
+          data-price="68976.02" 
+          data-capacity="11.8"
+          data-voltage="48"
+          data-popularity="88">
+        <div class="product-img-wrap">
+          <img src="images/accumulator-2.png" alt="Accumulator">
+        </div>
+        <h4 class="product-name">Акумуляторна батарея DEYE SE-F12 LiFePO4 LV 51.2v 230AH 11.8kWh</h4>
+        <div class="product-specs">
+          <span>11.8 кВт х год</span>
+          <span>48 В</span>
+        </div>
+          <p class="product-price">6 8976.02 грн</p>
           <button class="buy-btn">У кошик</button>
         </div>
 
-        <div class="product-card" data-category="inverter" data-brand="solis" data-price="68800.02" data-name="Мережевий інвертор Solis S5-GC30K" data-popularity="85">
-          <div class="product-img-wrap"><img src="images/inverter-3.png" alt="Інвертор"></div>
-          <h4 class="product-name">Мережевий інвертор Solis S5-GC30K</h4>
-          <p class="product-price">68 800.02 грн</p>
+        <!--Solar 3-->
+        <div class="product-card" 
+          data-category="panel" 
+          data-brand="deye" 
+          data-price="40954.51" 
+          data-capacity="5.12"
+          data-voltage="48"
+          data-popularity="80">
+        <div class="product-img-wrap">
+          <img src="images/accumulator-3.png" alt="Accumulator">
+        </div>
+        <h4 class="product-name">Акумуляторна батарея DEYE SE-F5 Pro-C LiFePO4 LV 51.2v 100AH 5.12kWh</h4>
+        <div class="product-specs">
+          <span>5.12 кВт х год</span>
+          <span>48 В</span>
+        </div>
+          <p class="product-price">4 0954.51 грн</p>
           <button class="buy-btn">У кошик</button>
         </div>
 

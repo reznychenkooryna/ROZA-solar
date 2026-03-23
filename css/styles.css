@@ -846,9 +846,9 @@ a {
     border-color: #FFD700;
 }
 .reset-btn {
-    background-color: #eee; /* Світло-сірий фон */
+    background-color: #eee; 
     color: #333;
-    margin-top: 10px; /* Відступ від верхньої кнопки */
+    margin-top: 10px; 
 }
 .reset-btn:hover {
     background-color: #ddd;

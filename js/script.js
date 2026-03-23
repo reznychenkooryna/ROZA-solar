@@ -2,7 +2,6 @@
 const carouselInner = document.querySelector('.carousel-inner');
 const carouselContainer = document.querySelector('.carousel-container');
 
-// Перевіряємо, чи є слайдер на поточній сторінці
 if (carouselInner && carouselContainer) {
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
@@ -48,7 +47,6 @@ if (carouselInner && carouselContainer) {
         autoPlayInterval = setInterval(() => moveSlide(1), 4000);
     }
 
-    // Покращення для мобільних: пауза при торканні (перенесено всередину перевірки)
     carouselContainer.addEventListener('touchstart', () => clearInterval(autoPlayInterval), {passive: true});
     carouselContainer.addEventListener('touchend', () => resetAutoPlay(), {passive: true});
 
@@ -60,7 +58,6 @@ function moveCardSlide(button, direction) {
     const slides = carousel.querySelectorAll('.card-slide');
 
     let activeIndex = 0;
-
     slides.forEach((slide, index) => {
         if (slide.classList.contains('active')) {
             activeIndex = index;
@@ -69,28 +66,31 @@ function moveCardSlide(button, direction) {
     });
 
     let newIndex = activeIndex + direction;
-
     if (newIndex >= slides.length) newIndex = 0;
     if (newIndex < 0) newIndex = slides.length - 1;
 
     slides[newIndex].classList.add('active');
 }
 
-
-
+// 2. БЛОК ФІЛЬТРАЦІЇ
 const applyFiltersBtn = document.getElementById('apply-filters');
 
 if (applyFiltersBtn) {
     applyFiltersBtn.addEventListener('click', function() {
-        // Отримуємо всі значення фільтрів
         const f = {
             minPrice: parseFloat(document.getElementById('price-min')?.value) || 0,
             maxPrice: parseFloat(document.getElementById('price-max')?.value) || Infinity,
+            
             minPower: parseFloat(document.getElementById('power-min')?.value) || 0,
             maxPower: parseFloat(document.getElementById('power-max')?.value) || Infinity,
             maxLen: parseFloat(document.getElementById('length-max')?.value) || Infinity,
             maxWid: parseFloat(document.getElementById('width-max')?.value) || Infinity,
             maxArea: parseFloat(document.getElementById('area-max')?.value) || Infinity,
+            
+            minCap: parseFloat(document.getElementById('capacity-min')?.value) || 0,
+            maxCap: parseFloat(document.getElementById('capacity-max')?.value) || Infinity,
+            voltages: Array.from(document.querySelectorAll('.voltage:checked')).map(cb => cb.value),
+            
             brands: Array.from(document.querySelectorAll('.brand-cb:checked')).map(cb => cb.value.toLowerCase())
         };
 
@@ -103,19 +103,22 @@ if (applyFiltersBtn) {
                 len: parseFloat(product.dataset.length) || 0,
                 wid: parseFloat(product.dataset.width) || 0,
                 area: parseFloat(product.dataset.area) || 0,
+                capacity: parseFloat(product.dataset.capacity) || 0,
+                voltage: (product.dataset.voltage || "").toString(),
                 brand: (product.dataset.brand || "").toLowerCase()
             };
 
-            // Логіка перевірки кожного параметру
             const matchPrice = d.price >= f.minPrice && d.price <= f.maxPrice;
             const matchPower = d.power >= f.minPower && d.power <= f.maxPower;
             const matchLen   = d.len <= f.maxLen;
             const matchWid   = d.wid <= f.maxWid;
             const matchArea  = d.area <= f.maxArea;
             const matchBrand = f.brands.length === 0 || f.brands.includes(d.brand);
+            
+            const matchCap   = d.capacity >= f.minCap && d.capacity <= f.maxCap;
+            const matchVolt  = f.voltages.length === 0 || f.voltages.includes(d.voltage);
 
-            // Товар відображається тільки якщо ВСІ умови true
-            if (matchPrice && matchPower && matchLen && matchWid && matchArea && matchBrand) {
+            if (matchPrice && matchPower && matchLen && matchWid && matchArea && matchBrand && matchCap && matchVolt) {
                 product.style.display = 'flex';
             } else {
                 product.style.display = 'none';
@@ -123,54 +126,45 @@ if (applyFiltersBtn) {
         });
     });
 }
+
 const resetFiltersBtn = document.getElementById('reset-filters');
 
 if (resetFiltersBtn) {
     resetFiltersBtn.addEventListener('click', function() {
-        // 1. Очищаємо всі числові інпути
         const inputs = document.querySelectorAll('.catalog-filters input[type="number"]');
         inputs.forEach(input => input.value = '');
 
-        // 2. Знімаємо всі чекбокси брендів
-        const checkboxes = document.querySelectorAll('.brand-cb');
+        const checkboxes = document.querySelectorAll('.catalog-filters input[type="checkbox"]');
         checkboxes.forEach(cb => cb.checked = false);
 
-        // 3. Скидаємо селект сортування (опціонально)
         const sortSelect = document.getElementById('sort-select');
         if (sortSelect) sortSelect.value = 'default';
 
-        // 4. Відображаємо всі товари
         const products = document.querySelectorAll('.product-card');
         products.forEach(product => {
             product.style.display = 'flex';
         });
 
-        // 5. Якщо ви хочете, щоб сортування теж повернулося до початкового стану:
         if (sortSelect) {
             sortSelect.dispatchEvent(new Event('change'));
         }
     });
 }
+
 // 3. БЛОК СОРТУВАННЯ
 const sortSelect = document.getElementById('sort-select');
 const container = document.getElementById('products-container');
 
-// Перевіряємо, чи є селект та контейнер на сторінці
 if (sortSelect && container) {
-    // ЗБЕРІГАЄМО початковий порядок елементів при завантаженні сторінки
     const originalOrder = Array.from(container.getElementsByClassName('product-card'));
 
     sortSelect.addEventListener('change', function() {
         const val = this.value;
-        
-        // Беремо поточні елементи, щоб працювати з ними
         let products = Array.from(container.getElementsByClassName('product-card'));
 
         if (val === 'default') {
-            // Якщо обрано "За замовчуванням", беремо наш збережений оригінальний масив
             products = [...originalOrder];
         } else {
-            // Інакше — сортуємо
             products.sort((a, b) => {
                 if (val === 'price-asc') {
                     return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
@@ -179,8 +173,6 @@ if (sortSelect && container) {
                     return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
                 }
                 if (val === 'popularity') {
-                    // Сортуємо від найвищої популярності до найнижчої.
-                    // Якщо атрибута немає, приймаємо популярність за 0.
                     const popA = parseFloat(a.dataset.popularity) || 0;
                     const popB = parseFloat(b.dataset.popularity) || 0;
                     return popB - popA; 
@@ -189,7 +181,6 @@ if (sortSelect && container) {
             });
         }
 
-        // Очищаємо контейнер і додаємо картки у новому, відсортованому порядку
         container.innerHTML = '';
         products.forEach(p => container.appendChild(p));
     });
